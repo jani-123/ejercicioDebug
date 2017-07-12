@@ -13,8 +13,8 @@ function Producto(compra, cantidad) {
 Producto.prototype.toHTML = function () {
   var html = '';
   html += this.compra.toUpperCase() + '<br>';
-  html += this.cantidad + '<br>'; // error linea 16 se puso 'cantidad' y se concateno con la variable this.cantidades la cual tambien 
-  html += '<br><br>'; // estaba mal ya que la variable es "cantidad" y no "cantidades" --> error de sintaxis
+  html += this.cantidad + '<br>'; // error linea 16 se coloco la variable 'cantidades' la cual no existe lo correcto es 'cantidad' --> error de sintaxis
+  html += '<br><br>'; //  
   return html; // error linea 18 -- se retornaba un string "html" en ves de la variable html --> error de logica 
 }
 
@@ -30,7 +30,7 @@ function mergeHTML (){
 //función que imprime un producto luego de ingresarlo
 function printHTML (html){
   records.innerHTML = '';
-  records.innerHTML = html; // error linea 33 -- se puso el nombre de la variable incompleta htm siendo lo correcto html --> error de sintaxis
+  records.innerHTML = html; // error linea 33 -- se puso el nombre de la variable incompleto htm siendo lo correcto html --> error de sintaxis
 }
 
 // Cuando hacen click en el boton de nueva compra, crea una nueva compra y la añade al array de productos
@@ -38,7 +38,7 @@ var addCompra = document.getElementById('nuevacompra');
 addCompra.onclick = function() {
   var compra = prompt('Ingrese su nueva compra');
   var cantidad = prompt('Ingrese la cantidad');
-  var product  = new Producto (compra, cantidad); // error linea 41 -- se puso la funcion Compra que no existe en ves de Producto --> error de sintaxis
+  var product  = new Producto (compra, cantidad); // error linea 41 -- se puso la funcion Compra que no existe en ves del constructor Producto --> error de sintaxis
   productos.push(product);
   printHTML(product.toHTML());
 };
